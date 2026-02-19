@@ -2,12 +2,20 @@ from section1 import Section1
 from section2 import Section2
 from games import Games
 import random
+import platform
 import os
 
 #initiatilizing the classes
 section1 = Section1()
 section2 = Section2()
 games = Games()
+
+#to clear screen no matter platform for its terminal
+def clear():
+    if platform.system() == "Windows":
+        os.system("cls")
+    else:
+        os.system("clear")
 
 #well.. its the intro
 def intro():
@@ -30,14 +38,14 @@ def printList(list):
 
 #formats the menu
 def mainMenu():
-    os.system('cls')
+    clear()
     titles = [games.getTitle(),section1.getTitle(),section2.getTitle()]
     print("===============================")
     for i in titles:
         printList(i)
     print("===============================")
     secChoice = getUserString("Welome to the main menu. Which section would you like to dive into? (just enter the section number)",("0","1","2"))
-    os.system('cls')
+    clear()
     if secChoice == "1":
         section1Options()
     elif secChoice == "0":
@@ -59,7 +67,7 @@ def logicTechniqueOption(chapter,homework):
     print(chapter[0])
     while inTechnique:
         gameChoice = getUserString("Would you like to review the chapter [r], review basic homework [h], ([m] for menu) \n([b] for back)",("r","h","m","b"))
-        os.system('cls')
+        clear()
         if gameChoice == 'r':
             printList(chapter)
         elif gameChoice == 'h':
@@ -75,7 +83,7 @@ def logicTechGameOption(chapter,homework,game):
     print(chapter[0])
     while inTechnique:
         gameChoice = getUserString("Would you like to review the chapter [r], review basic homework [h], or play this chapters game? [g] ([m] for menu)\n([b] for back)",("r","h","g","m","b"))
-        os.system('cls')
+        clear()
         if gameChoice == 'r':
             printList(chapter)
         elif gameChoice == 'h':
@@ -84,7 +92,7 @@ def logicTechGameOption(chapter,homework,game):
             return mainMenu()
         elif gameChoice == 'g':
             game()
-            os.system('cls')
+            clear()
             print(chapter[0])
         elif gameChoice == 'b':
             inTechnique = False
@@ -97,12 +105,12 @@ def randDrills(gamesList):
 
 #Menu for just doing games
 def justTheGames():
-    os.system('cls')
+    clear()
     print()
     printList(games.getTitle())
     printList(games.getContents())
     techChoice = getUserString("Great! Which game would you like to go into? (just enter the game number)\n[m] for menu",("m","1","2","0","3"))
-    os.system('cls')
+    clear()
     if techChoice == "1":
         describingGame()
     elif techChoice == "m":
@@ -121,7 +129,7 @@ def section1Options():
     printList(section1.getTitle())
     printList(section1.getContents())
     techChoice = getUserString("Great! Which technique would you like to go into? (just enter the technique number)",("1","2","3"))
-    os.system('cls')
+    clear()
     if techChoice == "1":
         logicTechniqueOption(section1.getCh1(),section1.getHome())
     elif techChoice == "2":
@@ -141,7 +149,7 @@ def section2Options():
     if choice == 'c':
         printList(section2.getContents())
         techChoice = getUserString("Great! Which technique would you like to go into? (just enter the technique number)",("4","5","6","7","8","9","10"))
-        os.system('cls')
+        clear()
         if techChoice == "4":
             logicTechGameOption(section2.getCh4(),section2.getCh4Home(),describingGame)
         if techChoice == "5": 
@@ -159,7 +167,7 @@ def section2Options():
 
 
 def gameLogicLayout(chapterExam,addExamMethod,gameDesc,instruction):
-    os.system('cls')
+    clear()
     wordsList = chapterExam
     for i in gameDesc:
         print(i)
@@ -216,7 +224,7 @@ def stickLabelGame():
     
 
 def main():
-    os.system('cls')
+    clear()
     printList(intro())
     mainMenu()
 
