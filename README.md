@@ -4,3 +4,6 @@ game based off that chapter to truly practice what the chapter was talking about
 
 I made this in 2024 and forgot about it, so if you want a feel for what it intails i would just
 go into the games tab from the menu and just try some of the games.
+
+I have future plans for turning this into an app with an actual interface but for now it just lives in
+in a terminal.
