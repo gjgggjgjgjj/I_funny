@@ -7,3 +7,7 @@ go into the games tab from the menu and just try some of the games.
 
 I have future plans for turning this into an app with an actual interface but for now it just lives in
 in a terminal.
+
+Here is the book where i got the lessons from. 
+"You Can Be Funny and Make People Laugh: No Fluff. No Theories. 
+35 Humor Techniques that Work for Everyday Conversations"
